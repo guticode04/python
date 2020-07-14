@@ -61,3 +61,25 @@ def valid_hex(code):
 @app.route('/')
 def basics():
   return f'<h1>{valid_hex("#ff66ff")}</h1>'
+
+
+# Dev Time July 14th
+@app.route('/item<int:id>')
+def item(id):
+  return f'<h1>Item {id}</h1>'
+
+@app.route('/sample')
+def sample_page():
+  return ```
+    <!doctype html>
+    <html>
+      <head>
+        <title> Home - Sample App</title>
+      </head>
+      <body>
+        <h1>Sample App</h1>
+        <h2>Home Page</h2>
+        <p> coming to a browser near you... </p>
+      </body>
+    </html>
+  ```
