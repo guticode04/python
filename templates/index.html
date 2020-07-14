@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+
+  <head>
+    <title> Home - Sample App</title>
+    <title> {{page}} - Sample App</title>
+  </head>
+
+  <body>
+    <h1>Sample App</h1>
+    <h2>Home Page</h2>
+    <h2>{{page}} Page</h2>
+    <p> coming to a browser near you... </p>
+    {% if logged_in %}
+    <p>Approve Demo Dashboard <button> Here </button></p>
+    {% endif %}
+    {% include 'copy.html' %}
+  </body>
+
+</html>

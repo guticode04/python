@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from config import Config
 
 app = Flask(__name__)
@@ -64,22 +64,27 @@ def basics():
 
 
 # Dev Time July 14th
+# Jinja and Flask give us the templates
+# for the sample route we can pass in a variable to make it 
+# dynamic and have it say a something different like "Home" or "Info"
+
 @app.route('/item<int:id>')
 def item(id):
   return f'<h1>Item {id}</h1>'
 
 @app.route('/sample')
 def sample_page():
-  return ```
-    <!doctype html>
-    <html>
-      <head>
-        <title> Home - Sample App</title>
-      </head>
-      <body>
-        <h1>Sample App</h1>
-        <h2>Home Page</h2>
-        <p> coming to a browser near you... </p>
-      </body>
-    </html>
-  ```
+  return render_template('index.html', page = "About", logged_in=True)
+
+@app.route('/info')
+def info():
+  return render_template('index.html', page = "Info", logged_in=False)
+
+nav = [
+  {'href': 'https://google.com', 'caption': 'App Academy'}
+]
+
+@app.route('/links')
+def links():
+  return render_template('nav.html', navigation = nav)
+
